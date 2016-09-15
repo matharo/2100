@@ -62,24 +62,22 @@ public:
     return it;
   }
 
-  void moveToStart() // Place curr at list start
-    { curr = head; }
 
-  void moveToEnd()   // Place curr at list end
-    { curr = tail; }
+//  void moveToEnd()   // Place curr at list end
+//   { curr = tail; }
 
   // Move curr one step left; no change if already at front
-  void prev() {
-    if (curr == head) return;       // No previous element
-    Link<E>* temp = head;
+//  void prev() {
+//    if (curr == head) return;       // No previous element
+//    Link<E>* temp = head;
     // March down list until we find the previous element
-    while (temp->next!=curr) temp=temp->next;
-    curr = temp;
-  }
+//    while (temp->next!=curr) temp=temp->next;
+//    curr = temp;
+//  }
 
   // Move curr one step right; no change if already at end
-  void next()
-    { if (curr != tail) curr = curr->next; }
+ // void next()
+ //   { if (curr != tail) curr = curr->next; }
 
   int length() const  { return cnt; } // Return length
 

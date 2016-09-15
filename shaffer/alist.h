@@ -57,10 +57,9 @@ public:
     listSize--;                          // Decrement size
     return it;
   }
-  void moveToStart() { curr = 0; }        // Reset position
-  void moveToEnd() { curr = listSize; }     // Set at end
-  void prev() { if (curr != 0) curr--; }       // Back up
-  void next() { if (curr < listSize) curr++; } // Next
+ // void moveToEnd() { curr = listSize; }     // Set at end
+ // void prev() { if (curr != 0) curr--; }       // Back up
+ // void next() { if (curr < listSize) curr++; } // Next
 
   // Return list size
   int length() const  { return listSize; }

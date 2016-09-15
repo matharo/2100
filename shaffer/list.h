@@ -8,12 +8,18 @@ template <typename E> class List { // List ADT
 private:
   void operator =(const List&) {}      // Protect assignment
   List(const List&) {}           // Protect copy constructor
+
 public:
   List() {}          // Default constructor
   virtual ~List() {} // Base destructor
 
   // Clear contents from the list, to make it empty.
-  virtual void clear() = 0;
+  void clear()
+  { for (int i = 0; i < length(); i++)
+    { moveToEnd();
+      remove();
+    }
+  }
 
   // Insert an element at the current location.
   // item: The element to be inserted
@@ -25,21 +31,27 @@ public:
 
   // Remove and return the current element.
   // Return: the element that was removed.
-  virtual E remove() = 0;
+  virtual  E remove() = 0;
 
   // Set the current position to the start of the list
-  virtual void moveToStart() = 0;
+  void moveToStart()
+  { moveToPos(0); }
 
   // Set the current position to the end of the list
-  virtual void moveToEnd() = 0;
+  void moveToEnd()
+  {  moveToPos(length()); }
 
   // Move the current position one step left. No change
   // if already at beginning.
-  virtual void prev() = 0;
+  void prev()
+  { currPos()-1; }
 
   // Move the current position one step right. No change
   // if already at end.
-  virtual void next() = 0;
+  void next()
+  { if (currPos() != length()-1)
+    { currPos()+1; }
+  }
 
   // Return: The number of elements in the list.
   virtual int length() const = 0;
@@ -53,4 +65,14 @@ public:
 
   // Return: The current element.
   virtual const E& getValue() const = 0;
-};
+
+  bool find(const E& item)
+  {  for (int i = 0; i < length(); i++)
+     { moveToStart();
+       if (item != getValue())
+       {  next(); }
+       else
+       {  return "True"; }
+     }
+  }
+;
