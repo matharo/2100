@@ -23,11 +23,11 @@ void Vector3D::setCoordinate(int i, float val) {
   c[i] = val;
 }
 
-float Vector3D::getCoordinate(int i) {
+float Vector3D::getCoordinate(int i) const {
   return c[i];
 }
 
-float Vector3D::magnitude() {
+float Vector3D::magnitude() const {
   float ans = 0.0;
   for (int i=0; i < 3; i++) {
     ans += c[i]*c[i]; 
@@ -40,6 +40,16 @@ void Vector3D::normalize(){
   if (m != 0.0) {
     for (int i=0; i < 3; i++) {
       c[i] /= m;
+    }
+  }
+}
+
+void Vector3D::absoluteValue(){
+  for (int i=0;i<3;i++){
+    if (Vector3D::getCoordinate(i) < 0){
+       int coordinate = Vector3D::getCoordinate(i);
+       coordinate *= (-1);
+       Vector3D::setCoordinate(i,coordinate);
     }
   }
 }

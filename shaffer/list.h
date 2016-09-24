@@ -16,9 +16,8 @@ public:
   // Clear contents from the list, to make it empty.
   void clear()
   { for (int i = 0; i < length(); i++)
-    { moveToEnd();
-      remove();
-    }
+     moveToEnd();
+     remove();
   }
 
   // Insert an element at the current location.
@@ -67,12 +66,10 @@ public:
   virtual const E& getValue() const = 0;
 
   bool find(const E& item)
-  {  for (int i = 0; i < length(); i++)
-     { moveToStart();
-       if (item != getValue())
-       {  next(); }
-       else
-       {  return "True"; }
-     }
-  }
-;
+  { 
+    for (i = moveToStart(); i.currPos()<length();i.next()) //loop from start
+    { if (i.getValue()==item) return true; //see if value is item
+    }
+      return false; //return false finish looping, and item not found
+  }    
+};

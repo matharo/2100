@@ -84,8 +84,7 @@ public:
   // Return the position of the current element
   int currPos() const {
     Link<E>* temp = head;
-    int i;
-    for (i=0; curr != temp; i++)
+    for (int i=0; curr != temp; i++)
       temp = temp->next;
     return i;
   }
@@ -101,4 +100,16 @@ public:
     Assert(curr->next != NULL, "No value");
     return curr->next->element;
   }
+
+  void reverse() { //reverse order of elements
+    moveToStart();
+    Link<E>* last; //creates link, to be the empty last link
+    curr->next = last->next; //point curr pointer to "last" link
+    Link<E>* prev;
+    for (int i=0; curr!=tail->next->next;i++){
+      prev = curr;
+      next();
+      curr->next = prev->next;
+     }
+   }
 };

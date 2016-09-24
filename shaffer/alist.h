@@ -33,10 +33,28 @@ public:
     listSize = curr = 0;            // Reset the size
     listArray = new E[maxSize];  // Recreate array
   }
+  
+  void increaseSize(){
+    maxSize = maxSize*2;
+
+    temp = new E[maxSize];
+    for (int i = 0; i < length(); i++){
+     temp[i]=listArray[i];
+    }
+    delete [] listArray;
+
+    listArray = new E[maxSize];
+    for (int i = 0; i < length(); i++){ 
+      temp[i] = listArray[i];
+    }
+    delete [] temp;
+
+   }
 
   // Insert "it" at current position
   void insert(const E& it) {
-    Assert(listSize < maxSize, "List capacity exceeded");
+    increaseSize();
+    //Assert(listSize < maxSize, "List capacity exceeded");
     for(int i=listSize; i>curr; i--)  // Shift elements up
       listArray[i] = listArray[i-1];  //   to make room
     listArray[curr] = it;
@@ -44,7 +62,8 @@ public:
   }
 
   void append(const E& it) {       // Append "it"
-    Assert(listSize < maxSize, "List capacity exceeded");
+    increaseSize();
+    //Assert(listSize < maxSize, "List capacity exceeded");
     listArray[listSize++] = it;
   }
 
