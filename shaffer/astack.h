@@ -18,7 +18,7 @@ private:
   E *listArray;          // Array holding stack elements
 
 public:
-  AStack(int size =defaultSize)   // Constructor
+  AStack(int size )   // Constructor
     { maxSize = size; top = 0; listArray = new E[size]; }
 
   ~AStack() { delete [] listArray; }  // Destructor
