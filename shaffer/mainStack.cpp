@@ -4,8 +4,7 @@ using namespace std;
 
 bool isBalanced(string input){
 
- int slength = input.length();
- AStack<char> stack(slength);
+ AStack<char> stack;
  for (string s : input){
   if (s == "(" or "[")
   { stack.push(s); }
