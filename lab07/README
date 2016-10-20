@@ -1,4 +1,7 @@
 implement a priority queue based on Shaffer's heap,
 then implement heapsort, analyze run time.
+<<<<<<< HEAD
 
 See Shaffer 7.6 for more information also.
+=======
+>>>>>>> b84ce1d9912b547c52ccb65847f44990c74ce0ff
