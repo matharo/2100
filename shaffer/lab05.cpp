@@ -9,7 +9,7 @@ int count(BinNode<E>* root) {  //returns 5
   if (root == NULL) return 0;  // Nothing to count
   return 1 + count(root->left())
            + count(root->right());
-}
+
 
 template <typename E>
 int height(BinNode<E>* root) { //returns 3
@@ -75,9 +75,11 @@ void print_tree_by_level(BinNode<E>* root) {
   AQueue<BinNode<E>*> list, nextL;
   list.enqueue(root);
   while (list->length()!=0){
-    BinNode<E>* node = list.frontOf();
-    if (node){
+    cout<<list.dequeue();
+    if (list->left()->isLeaf()){
     list.enqueue(root->left());
+
+
     list.enqueue(root->right());
    
     while (list.length() !=0){

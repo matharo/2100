@@ -30,7 +30,7 @@ public:
 
   void clear() { rear = 0; front = 1; } // Reinitialize
 
-  void enqueue_back(const E& it) {     // Put "it" in queue
+  void enqueue(const E& it) {     // Put "it" in queue
     Assert(((rear+2) % maxSize) != front, "Queue is full");
     rear = (rear+1) % maxSize;       // Circular increment
     listArray[rear] = it;

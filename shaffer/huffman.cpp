@@ -23,6 +23,7 @@
 #include <cstdio>
 #include <cstring>
 
+#include <math.h>
 // Include definition for heaps
 // We will use them to keep track of the forest of huffman trees during the
 // building operation
@@ -238,6 +239,17 @@ int main(int argc, char** argv) {
   buildcode(theTree->root(), theTable, prefix, 0, total);
   cout << "Average code length is "
        << total/(double)theTree->weight() << "\n";
+
+  //h=-p1log2p1 -p2log2p2 ...
+ // double H;
+
+ // for (int i = 0; i < CODETABLELEN; i++){
+  //  double p = 
+
+    //double p = (double)count/(double)theTree->weight();;
+   // H += -p*(log(p)/log(2));
+  //}  
+ // cout << "The entropy is..." << H << "\n";
 
   // Finally, do the encode/decode commands to test the system.
   do_commands(theTree, theTable, fp);

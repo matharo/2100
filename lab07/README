@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-implement a priority queue based on Shaffer's heap,
-then implement heapsort, analyze run time.
-<<<<<<< HEAD
-
-See Shaffer 7.6 for more information also.
-=======
->>>>>>> b84ce1d9912b547c52ccb65847f44990c74ce0ff
-=======
-
-
 (1) [This is essentially Project 5.5 in Shaffer, with extra hints]
 
 I presented the heap data structure to you as a kind of 
@@ -66,6 +55,11 @@ Now, the changeweight method is a bit trickier to write, because heap
 doesn't provide us with any easy way of searching for an
 arbitrary element by its jobID.
 
+Use an array, storing the object with ObjectID i in position i. (Be sure in your
+testing to keep the ObjectIDs within the array bounds.) You must also
+modify the heap implementation to store the object’s position in the auxiliary
+array so that updates to objects in the heap can be updated as well in the
+array.
 
 (2) The heap data structure can be used to sort an array of integers
 quite efficiently.  The algorithm is straightforward; given an 

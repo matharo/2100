@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
-
+#include <iostream>	
 // Used by the mark array
 #define UNVISITED 0
 #define VISITED 1
