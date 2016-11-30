@@ -6,9 +6,12 @@
 // Include this file to access Graph representation implemented using an
 // Adjacency List
 
+#ifndef _GRLIST_
+#define _GRLIST_
+
 #include <stdio.h>
 #include <ctype.h>
-#include <iostream>	
+
 // Used by the mark array
 #define UNVISITED 0
 #define VISITED 1
@@ -135,3 +138,5 @@ public:
 };
 
 #include "graphutil.cpp"
+
+#endif

@@ -2,7 +2,8 @@
 // "A Practical Introduction to Data Structures and Algorithm Analysis,
 // Third Edition (C++)" by Clifford A. Shaffer.
 // Source code Copyright (C) 2007-2011 by Clifford A. Shaffer.
-
+#ifndef _LIST_
+#define _LIST_
 
 template <typename E> class List { // List ADT
 private:
@@ -14,10 +15,12 @@ public:
   virtual ~List() {} // Base destructor
 
   // Clear contents from the list, to make it empty.
-  void clear()
-  { for (int i = 0; i < length(); i++)
-     moveToEnd();
-     remove();
+
+  void clear() {
+    moveToStart();
+    while (length() > 0) {
+      remove();
+    }
   }
 
   // Insert an element at the current location.
@@ -26,7 +29,12 @@ public:
 
   // Append an element at the end of the list.
   // item: The element to be appended.
-  virtual void append(const E& item) = 0;
+  void append(const E& item) {
+    int old = currPos();
+    moveToEnd();
+    insert(item);
+    moveToPos(old);
+  }
 
   // Remove and return the current element.
   // Return: the element that was removed.
@@ -42,14 +50,18 @@ public:
 
   // Move the current position one step left. No change
   // if already at beginning.
-  void prev()
-  { currPos()-1; }
+  void prev() {
+    if (currPos() != 0) {
+      moveToPos(currPos()-1);
+    }
+  }
 
   // Move the current position one step right. No change
   // if already at end.
-  void next()
-  { if (currPos() != length()-1)
-    { currPos()+1; }
+  void next() {
+    if (currPos() < length()) {
+      moveToPos(currPos()+1);
+    }
   }
 
   // Return: The number of elements in the list.
@@ -64,12 +76,13 @@ public:
 
   // Return: The current element.
   virtual const E& getValue() const = 0;
-
-  bool find(const E& item)
-  { 
-    for (i = moveToStart(); i.currPos()<length();i.next()) //loop from start
-    { if (i.getValue()==item) return true; //see if value is item
+    
+  bool find(const E& item) {
+    for (moveToStart(); currPos()<length(); next()) {
+      if (item == getValue()) return true;
     }
-      return false; //return false finish looping, and item not found
-  }    
+    return false;
+  }
 };
+
+#endif

@@ -5,6 +5,9 @@
 
 // Functions for creating and printing graphs
 
+#ifndef _GRAPHUTIL_
+#define _GRAPHUTIL_
+
 #define LINELEN 80
 
 void Gprint(Graph* G) {
@@ -78,3 +81,5 @@ Graph* createGraph(FILE* fid) {
   }
   return G;
 }
+
+#endif

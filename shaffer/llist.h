@@ -7,6 +7,10 @@
 // complete LList template class
 
 // First, get the declaration for the base list class
+
+#ifndef _LLIST_
+#define _LLIST_
+
 #include "list.h"
 
 // This is the declaration for LList. It is split into two parts
@@ -113,3 +117,5 @@ public:
      }
    }
 };
+
+#endif

@@ -7,6 +7,10 @@
 // complete AList template class
 
 // First, get the declaration for the base list class
+
+#ifndef _ALIST_
+#define _ALIST_
+
 #include "list.h"
 
 // This is the declaration for AList. It is split into two parts
@@ -81,6 +85,7 @@ public:
  // void prev() { if (curr != 0) curr--; }       // Back up
  // void next() { if (curr < listSize) curr++; } // Next
 
+
   // Return list size
   int length() const  { return listSize; }
 
@@ -98,3 +103,5 @@ public:
     return listArray[curr];
   }
 };
+
+#endif

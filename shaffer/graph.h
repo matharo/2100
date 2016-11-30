@@ -7,8 +7,8 @@
 // of vertices is fixed when the graph is created.
 //
 
-#include <string.h>
 #include <iostream>
+
 using namespace std;
 class Graph {
 private:
@@ -36,8 +36,6 @@ public:
   // i, j: The vertices
   // wgt: Edge weight
   virtual void setEdge(int v1, int v2, int wght) =0;
-
-  // Delete an edge
   // i, j: The vertices
   virtual void delEdge(int v1, int v2) =0;
 
@@ -72,49 +70,3 @@ public:
       o << i << "," << j << endl;
   }}}}
 };
-
-#include <iostream>
-
-  void importGDF(istream& in){
-    string line = in.getline(); //first line
-    while (line){
-     AList<int> array;
-     int stop = 0;
-     line = in.ignore(' '); //ignore spaces
-     for (char i : line){
-      if (char i == ','){
-       array.append(line.substr(stop,i-1);
-       stop = i+1;
-      }
-      array.append(line.substr(stop,i)); //the string
-     }
-     int node1 = array[0];
-     int node2 = array[1];
-     int weight = array[2];
-     setEdge(node1, node2, weight); //create edge
-
-     line = in.getline(); //get next line
-    }
-  }
-
-  void importCSV(istream& i) const{
-   string line = i.getline();
-   while (line){
-    AList<int> array;
-    int stop = 0;
-    line = i.ignore(' ');
-    for (int p = 0; p < line.length();p++){
-     if (line[p] == ';'){
-      array.append(line.substr(stop,p-1);
-      stop = p+1;
-     }
-     array.append(line.substr(stop,p));
-    
-   node1 = array[0];
-   node2 = array[1];
-   weight = array[2];
-   setEdge(node1,node2,weight);
-   line = i.getline();
-   }
-  }
-

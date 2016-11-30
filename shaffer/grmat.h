@@ -5,6 +5,8 @@
 
 // Include this file to access Graph representation implemented using an
 // Adjacency Matrix.
+#ifndef _GRMAT_
+#define _GRMAT_
 
 #include <stdio.h>
 #include <ctype.h>
@@ -86,3 +88,5 @@ public:
 };
 
 #include "graphutil.cpp"
+
+#endif
