@@ -31,36 +31,28 @@ void Dijkstra(Graph* G, int* D, int s) {
 
 int minVertex(Graph* G, int* D) { // Find min cost vertex
   int i, v = -1;
-  // Initialize v to some unvisited vertex
   for (i=0; i<G->n(); i++)
     if (G->getMark(i) == UNVISITED) { v = i; break; }
   for (i++; i<G->n(); i++)  // Now find smallest D value
     if ((G->getMark(i) == UNVISITED) && (D[i] < D[v]))
       v = i;
   return v;
+
 }
+
 
 // Test Dijkstra's algorithm:
 // Version for Adjancency List representation
 int main(int argc, char** argv) {
+  int size;
+  cout<<"Size: (-1 to exit) "<<endl;
+  cin>> size;
+  if (size == -1){return 0;}
   Graph* G;
-  FILE *fid;
-
-  if (argc != 2) {
-    cout << "Usage: grdijkl1 <file>\n";
-    exit(-1);
-  }
-
-  if ((fid = fopen(argv[1], "rt")) == NULL) {
-    cout << "Unable to open file |" << argv[1] << "|\n";
-    exit(-1);
-  }
-
-  G = createGraph<Graphl>(fid);
-  if (G == NULL) {
-    cout << "Unable to create graph\n";
-    exit(-1);
-  }
+  G = graphDense<Graphl>(size); //change to graphDense or graphSparse
+  
+  clock_t t1;
+  t1 = clock();
 
   int D[G->n()];
   for (int i=0; i<G->n(); i++)     // Initialize
@@ -68,9 +60,15 @@ int main(int argc, char** argv) {
   D[0] = 0;
 
   Dijkstra(G, D, 0);
-
   for(int k=0; k<G->n(); k++)
     cout << D[k] << " ";
   cout << endl;
+
+  float diff (clock()-t1);
+  float seconds = diff/CLOCKS_PER_SEC;
+  cout<<"Runtime:"<<seconds<<endl;
+
+  cout<<"Vertices:"<<G->n()<<endl;
+  cout<<"Edges:"<<G->n()<<endl;
   return 0;
-}
+};

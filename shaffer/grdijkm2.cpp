@@ -60,25 +60,17 @@ void Dijkstra(Graph* G, int* D, int s) {
 
 // Test Dijkstra's algorithm with priority queue
 // Version for Adjancency Matrix representation
-int main(int argc, char** argv) {
+int main(){
+
+  int size;
+  cout<<"Size: (-1 to exit) "<<endl;
+  cin>> size;
+  if (size == -1){return 0;}
   Graph* G;
-  FILE *fid;
+  G = graphDense<Graphm>(size); //change to graphDense or graphSparse
 
-  if (argc != 2) {
-    cout << "Usage: grdijk2m <file>\n";
-    exit(-1);
-  }
-
-  if ((fid = fopen(argv[1], "rt")) == NULL) {
-    cout << "Unable to open file |" << argv[1] << "|\n";
-    exit(-1);
-  }
-
-  G = createGraph<Graphm>(fid);
-  if (G == NULL) {
-    cout << "Unable to create graph\n";
-    exit(-1);
-  }
+  clock_t t1;
+  t1 = clock();
 
   int D[G->n()];
   for (int i=0; i<G->n(); i++)     // Initialize
@@ -89,5 +81,12 @@ int main(int argc, char** argv) {
   for(int k=0; k<G->n(); k++)
     cout << D[k] << " ";
   cout << endl;
+
+  float diff (clock()-t1);
+  float seconds = diff/CLOCKS_PER_SEC;
+  cout<<"Runtime:"<<seconds<<endl;
+
+  cout<<"Vertices:"<<G->n()<<endl;
+  cout<<"Edges:"<<G->n()<<endl;
   return 0;
-}
+};

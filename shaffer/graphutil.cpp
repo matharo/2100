@@ -5,9 +5,6 @@
 
 // Functions for creating and printing graphs
 
-#ifndef _GRAPHUTIL_
-#define _GRAPHUTIL_
-
 #define LINELEN 80
 
 void Gprint(Graph* G) {
@@ -22,7 +19,7 @@ void Gprint(Graph* G) {
       cout << G->weight(i, j) << " ";
     cout << "\n";
   }
-}
+};
 
 
 char* getl(char* buffer, int n, FILE* fid) {
@@ -31,7 +28,7 @@ char* getl(char* buffer, int n, FILE* fid) {
   while ((ptr != NULL) && (buffer[0] == '#'))
     ptr = fgets(buffer, n, fid);
   return ptr;
-}
+};
 
 
 // Create a graph from file fid
@@ -80,6 +77,28 @@ Graph* createGraph(FILE* fid) {
       G->setEdge(v2, v1, dist);
   }
   return G;
-}
+};
 
-#endif
+template<typename GType>
+Graph* graphDense(int size){
+  Graph* Graph1 = new GType(size);
+  for (int i = 0; i < size; i++){
+   for (int j = 0; j<size; j++){
+    if (i!=j){
+     int r = (rand()%22+1);
+     Graph1->setEdge(i,j,r);
+    }
+   }
+  }
+  return Graph1;
+};
+
+template<typename GType>
+Graph* graphSparse(int size){ //list
+  Graph* Graph2 = new GType(size);
+  for (int i = 0; i < size; i++){
+   int weight = (rand()%22+1);
+   Graph2->setEdge(i,i+1,weight); 
+  }
+  return Graph2;
+};
