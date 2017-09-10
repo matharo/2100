@@ -23,14 +23,14 @@ public:
   virtual void Init(int n) =0;
 
   // Return: the number of vertices and edges
-  virtual int n() const =0;
-  virtual int e() const =0;
+  virtual int n() =0;
+  virtual int e() =0;
 
   // Return v's first neighbor
-  virtual int first(int v) const =0;
+  virtual int first(int v) =0;
 
  // Return v's next neighbor
-  virtual int next(int v, int w) const =0;
+  virtual int next(int v, int w) =0;
 
   // Set the weight for an edge
   // i, j: The vertices
@@ -42,31 +42,16 @@ public:
   // Determine if an edge is in the graph
   // i, j: The vertices
   // Return: true if edge i,j has non-zero weight
-  virtual bool isEdge(int i, int j) const =0;
+  virtual bool isEdge(int i, int j) =0;
 
   // Return an edge's weight
   // i, j: The vertices
   // Return: The weight of edge i,j, or zero
-  virtual int weight(int v1, int v2) const =0;
+  virtual int weight(int v1, int v2) =0;
 
   // Get and Set the mark value for a vertex
   // v: The vertex
   // val: The value to set
-  virtual int getMark(int v) const =0;
+  virtual int getMark(int v) =0;
   virtual void setMark(int v, int val) =0;
-
-
-  void exportCSV(ostream& o) const{ //save graph as CSV 
-   for (int i = 0; i < n(); i++){
-    for (int j = 0; j < n(); j++){
-     if (isEdge(i,j)){
-      o << i << ";" << j << endl;
-     }}}}
-
-  void exportGDF(ostream& o) const{
-   for (int i = 0; i < n(); i++){
-    for (int j = 0; j < n(); j++){
-     if (isEdge(i,j)){
-      o << i << "," << j << endl;
-  }}}}
 };

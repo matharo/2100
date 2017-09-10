@@ -25,7 +25,6 @@ int main() {
     }
   }
   s2[bestindex+bestlen] = 0;
-
   cout << "Longest common substring:\n" << s2+bestindex << "\n";
   return 0;
 }

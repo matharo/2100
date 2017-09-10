@@ -7,10 +7,6 @@
 // complete AList template class
 
 // First, get the declaration for the base list class
-
-#ifndef _ALIST_
-#define _ALIST_
-
 #include "list.h"
 
 // This is the declaration for AList. It is split into two parts
@@ -103,5 +99,3 @@ public:
     return listArray[curr];
   }
 };
-
-#endif

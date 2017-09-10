@@ -27,9 +27,11 @@ int main() {
     }
   }
 
-  s2[bestindex+bestlen] = 0;
-
-  cout << "Longest common substring:\n" << s2+bestindex << "\n";
-
+  //s2[bestindex+bestlen] = 0;
+  //cout<<"best index"<<bestindex<<endl<<"best len "<<bestlen<<endl;
+  //cout << "Longest common substring:\n" << s2+bestindex << "\n";
+  for (int in = bestindex; in < bestindex+bestlen; in++){
+    cout<<s2[in];}
+  cout<<endl;
   return 0;
 }

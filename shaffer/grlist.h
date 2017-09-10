@@ -5,10 +5,6 @@
 
 // Include this file to access Graph representation implemented using an
 // Adjacency List
-
-#ifndef _GRLIST_
-#define _GRLIST_
-
 #include <stdio.h>
 #include <ctype.h>
 
@@ -17,7 +13,7 @@
 #define VISITED 1
 
 #include "link.h"
-#include "llist.h"
+#include "llist2.h"
 
 #include "graph.h"
 
@@ -138,5 +134,3 @@ public:
 };
 
 #include "graphutil.cpp"
-
-#endif

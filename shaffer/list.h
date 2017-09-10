@@ -2,9 +2,6 @@
 // "A Practical Introduction to Data Structures and Algorithm Analysis,
 // Third Edition (C++)" by Clifford A. Shaffer.
 // Source code Copyright (C) 2007-2011 by Clifford A. Shaffer.
-#ifndef _LIST_
-#define _LIST_
-
 template <typename E> class List { // List ADT
 private:
   void operator =(const List&) {}      // Protect assignment
@@ -84,5 +81,3 @@ public:
     return false;
   }
 };
-
-#endif

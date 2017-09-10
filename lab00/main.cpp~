@@ -1,0 +1,26 @@
+#include <iostream>
+#include "Vector3D.cpp"
+#include <cmath>
+using namespace std;
+
+int main()
+{
+  Vector3D vector;
+
+  for (int i=0;i<3;i++)
+  {
+	int value;
+	cout<<"Enter number #"<<i <<endl;
+	cin>>value;
+	vector.setCoordinate(i,value);
+  }
+  for (int i=0;i<3;i++)
+  {
+	if (vector.getCoordinate(i)<0)
+	{
+		int coordinate = vector.getCoordinate(i);
+		coordinate = coordinate*(-1);
+		vector.setCoordinate(i,coordinate);
+	}
+  }
+};

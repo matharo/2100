@@ -8,9 +8,6 @@
 
 // First, get the declaration for the base list class
 
-#ifndef _LLIST_
-#define _LLIST_
-
 #include "list.h"
 
 // This is the declaration for LList. It is split into two parts
@@ -67,8 +64,8 @@ public:
   }
 
 
-//  void moveToEnd()   // Place curr at list end
-//   { curr = tail; }
+ // void moveToEnd()   // Place curr at list end
+  // { curr = tail; }
 
   // Move curr one step left; no change if already at front
 //  void prev() {
@@ -81,13 +78,14 @@ public:
 
   // Move curr one step right; no change if already at end
  // void next()
- //   { if (curr != tail) curr = curr->next; }
+  // { if (curr != tail) curr = curr->next; }
 
   int length() const  { return cnt; } // Return length
 
   // Return the position of the current element
   int currPos() const {
     Link<E>* temp = head;
+    int i;
     for (int i=0; curr != temp; i++)
       temp = temp->next;
     return i;
@@ -105,7 +103,7 @@ public:
     return curr->next->element;
   }
 
-  void reverse() { //reverse order of elements
+  /*void reverse() { //reverse order of elements
     moveToStart();
     Link<E>* last; //creates link, to be the empty last link
     curr->next = last->next; //point curr pointer to "last" link
@@ -115,7 +113,6 @@ public:
       next();
       curr->next = prev->next;
      }
-   }
+   }*/
 };
 
-#endif
